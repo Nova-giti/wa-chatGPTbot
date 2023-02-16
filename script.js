@@ -4,7 +4,7 @@ const util = require("util");
 const chalk = require("chalk");
 const { Configuration, OpenAIApi } = require("openai");
 let setting = require("./key.json")
-const BOT_NAME = process.env.BOT_NAME ?? "KnightGPT";
+const BOT_NAME = process.env.BOT_NAME ?? "HS-GPT";
 
 module.exports = script = async (client, m, chatUpdate, store) => {
   try {
@@ -28,7 +28,7 @@ module.exports = script = async (client, m, chatUpdate, store) => {
         : "";
     var budy = typeof m.text == "string" ? m.text : "";
     // var prefix = /^[\\/!#.]/gi.test(body) ? body.match(/^[\\/!#.]/gi) : "/"
-    var prefix = /^[\\/!#.]/gi.test(body) ? body.match(/^[\\/!#.]/gi) : "/";
+    var prefix = /^[\\/!#.]/gi.test(body) ? body.match(/^[\\/!#.]/gi) : ".";
     const isCmd2 = body.startsWith(prefix);
     const command = body.replace(prefix, "").trim().split(/ +/).shift().toLowerCase();
     const args = body.trim().split(/ +/).slice(1);
@@ -73,22 +73,18 @@ module.exports = script = async (client, m, chatUpdate, store) => {
       switch (command) {
         case "help":
         case "menu":
-          m.reply(`*Whatsapp Bot OpenAI*
-            🔊Alex by Professor
-          📌Commands 
-          1. /ai
-          2. /img 
-*(KnightGPT)*
+          m.reply(`*H.S-ChatGPT🤖 Bot*
+          📌Commands:
+          1. .ai
+          2. .img 
+*(HS-ChatGPT🤖)*
 Cmd: ${prefix}ai 
 🔎For Searching anything.
-✅Join https://t.me/chatgpt04 \n
-✅subscribe us - https://youtu.be/G5qegT7bVAs\n
-✅JOIN - https://chat.whatsapp.com/DFWO2OXkmgu2bxnEVpLvuj \n
-✅Telegram - https://t.me/mr_unique_hacker
-⚠NOTE - To use Bot make sure you have joined all the above groups\n else it will leave the chat!!
-*(DALL-E)*
 Cmd: ${prefix}img
-to generate ai image`)
+🖼️To Generate ai image.
+✅Join https://chat.whatsapp.com/F6uF6fEzhfXBe8bUG0jwUU \n
+✅Subscribe him - https://www.youtube.com/c/MSCreatiVePlatForm/featured \n
+*JAZAKALLAH*`)
           break;
         case "ai": case "openai": 
           try {
